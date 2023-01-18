@@ -1,0 +1,77 @@
+@import "./styles/variables.scss";
+@import "./styles/utils.scss";
+@import "./styles/mixins.scss";
+@import "./styles/typography.scss";
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+
+    @include respond(big-desktop) {
+        // width > 1800?
+        font-size: 120%;
+    }
+
+    @include respond(tab-land) {
+        // width < 1200?
+        font-size: 75%;
+    }
+
+    @include respond(tab-port) {
+        // width < 900?
+        font-size: 65%;
+    }
+
+    // width < 600?
+    @include respond(phone) {
+    }
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Times New Roman", Times, serif;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+}
+
+input,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
