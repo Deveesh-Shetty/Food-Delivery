@@ -8,34 +8,34 @@ import "./Home.styles.scss";
 const Home = () => {
     return (
         <>
-            <section className="section-px">
+            {/* ------------------ HERO ------------------ */}
+
+            <section id="hero" className="">
                 <div className="hero">
-                    <div className="upper">
-                        <div className="hero__title">Best Food</div>
-                        <img src={scallopsSrc} alt="Scallops" />
-                    </div>
+                    <div className="content">
+                        <div className="line"></div>
 
-                    <div className="lower">
-                        <img src={bakedSushiSrc} alt="Baked Sushi" />
-                        <div className="hero__title">
-                            <div className="lower__connector">for</div>
+                        <h1>
+                            Authentic taste <br /> at its finest.
+                        </h1>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe, ab
+                            itaque? Quam libero expedita maxime!
+                        </p>
 
-                            <div className="hero__sub-title">Your Taste</div>
+                        <div className="content__actions">
+                            <a href="#" className="btn  btn__filled">
+                                Shop Now
+                            </a>
+
+                            <a href="#" className="btn">
+                                Learn More
+                            </a>
                         </div>
                     </div>
-                </div>
-
-                <div className="hero__cta">
-                    <div className="texts">
-                        <h2>Authentic taste at its finest.</h2>
-                        <p className="section-paragraph">
-                            Satisfy your cravings with our mouth-watering, expertly crafted dishes.
-                        </p>
+                    <div className="banner">
+                        <img src={bakedSushiSrc} alt="Scallops" />
                     </div>
-
-                    <a href="#" className="btn">
-                        Order Now
-                    </a>
                 </div>
             </section>
         </>
