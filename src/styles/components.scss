@@ -1,0 +1,35 @@
+@import "./variables.scss";
+
+.btn {
+    color: #fff;
+    border: 1px solid $primary-color;
+    text-transform: capitalize;
+    border-radius: 50rem;
+    padding: 0.8rem 1.8rem;
+    display: inline-block;
+    height: fit-content;
+    color: #000;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        background-color: $primary-color;
+        color: #fff;
+    }
+
+    &__filled {
+        color: #fff;
+        background-color: $primary-color;
+
+        &:hover {
+            background-color: $primary-color-hover;
+        }
+    }
+}
+
+.line {
+    height: 4px;
+    background-color: $primary-color;
+    max-width: 80px;
+    width: 100%;
+    margin-bottom: 2rem;
+}
