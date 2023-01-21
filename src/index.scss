@@ -2,6 +2,7 @@
 @import "./styles/utils.scss";
 @import "./styles/mixins.scss";
 @import "./styles/typography.scss";
+@import "./styles/components.scss";
 
 *,
 *::after,
@@ -40,15 +41,6 @@ body {
     box-sizing: border-box;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "Times New Roman", Times, serif;
-}
-
 ul li {
     list-style: none;
 }
@@ -56,11 +48,6 @@ ul li {
 a {
     color: inherit;
     text-decoration: none;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-        filter: brightness(1.1);
-    }
 }
 
 input,
