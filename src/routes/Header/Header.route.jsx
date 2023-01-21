@@ -15,26 +15,27 @@ const Header = () => {
                     </h1>
                 </div>
 
+                <nav className="nav">
+                    <ul>
+                        <li>
+                            <a className="nav__link" href="#">
+                                Menu
+                            </a>
+                        </li>
+                        <li>
+                            <a className="nav__link" href="#">
+                                About
+                            </a>
+                        </li>
+                        <li>
+                            <a className="nav__link" href="#">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
                 <div className="right">
-                    <nav className="nav">
-                        <ul>
-                            <li>
-                                <a className="nav__link" href="#">
-                                    Menu
-                                </a>
-                            </li>
-                            <li>
-                                <a className="nav__link" href="#">
-                                    About
-                                </a>
-                            </li>
-                            <li>
-                                <a className="nav__link" href="#">
-                                    Contact
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
                     <a href="#" className="cart">
                         <div className="cart__bag">
                             <HiOutlineShoppingBag />

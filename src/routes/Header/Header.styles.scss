@@ -2,15 +2,15 @@
 @import "../../styles/variables.scss";
 
 header {
+    border-bottom: 1px solid #dadada;
+    padding-top: 2rem;
     width: 100%;
     background-color: #fff;
     z-index: 99;
-    padding: 1.5rem 0;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     transition: all 0.2s ease-in;
-    margin-bottom: 2rem;
 
     @include respond(phone) {
         padding: 1.5rem 2rem;
@@ -22,29 +22,42 @@ header {
         gap: 3.5rem;
     }
 
+    .nav {
+        ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        &__link {
+            display: inline-block;
+            font-weight: 300;
+            font-size: 1.05rem;
+            padding: 1rem 1rem 2.5rem 1rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid transparent;
+            color: #5e5e5e;
+            transition: border-color 300ms ease, color 300ms ease;
+            line-height: 1.143em;
+            letter-spacing: 0.08em;
+
+            &:hover {
+                border-bottom-color: #0d0d0d;
+                color: #0d0d0d;
+            }
+        }
+    }
+
     .right {
         display: flex;
         align-items: center;
         gap: 4rem;
     }
 
-    .nav {
-        ul {
-            display: flex;
-            gap: 1.25rem;
-        }
-
-        &__link {
-            font-weight: 300;
-            font-size: 0.9rem;
-        }
-    }
-
     .cart {
         display: flex;
         align-items: flex-end;
         gap: 1.25rem;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
 
         &:hover {
             .cart__items {
@@ -73,7 +86,7 @@ header {
         }
 
         svg {
-            font-size: 1.35rem;
+            font-size: 1.5rem;
         }
 
         &__total {
