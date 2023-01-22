@@ -26,6 +26,24 @@
     }
 }
 
+.link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: $primary-color;
+
+    svg {
+        font-size: 1.35rem;
+        transition: transform 0.2s ease;
+    }
+
+    &:hover {
+        svg {
+            transform: translateX(5px);
+        }
+    }
+}
+
 .line {
     height: 4px;
     background-color: $primary-color;
