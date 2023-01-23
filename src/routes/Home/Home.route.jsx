@@ -22,13 +22,14 @@ const Home = () => {
                             Authentic taste <br /> at its finest.
                         </h1>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe, ab
-                            itaque? Quam libero expedita maxime!
+                            Our commitment to using only the highest quality ingredients ensures
+                            that every dish is bursting with flavor. Whether you're looking for a
+                            quick bite or a gourmet meal, we've got you covered.
                         </p>
 
                         <div className="content__actions">
                             <a href="#" className="btn  btn__filled">
-                                Shop Now
+                                Order Now
                             </a>
 
                             <a href="#" className="btn">
