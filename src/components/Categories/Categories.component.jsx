@@ -97,6 +97,15 @@ const Categories = () => {
                         ))}
                     </Swiper>
                 </div>
+
+                <div className="actions">
+                    <a href="/menu" className="btn btn--light btn--light-filled">
+                        View Menu
+                    </a>
+                    <a href="/menu" className="btn btn--light">
+                        Learn More
+                    </a>
+                </div>
             </div>
         </section>
     );
