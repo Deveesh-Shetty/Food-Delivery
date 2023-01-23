@@ -6,6 +6,8 @@ import scallopsSrc from "../../assets/images/scallops.jpg";
 import { BsArrowRight, BsInstagram, BsFacebook } from "react-icons/bs";
 import { SiTiktok } from "react-icons/si";
 
+import Categories from "../../components/Categories/Categories.component";
+
 import "./Home.styles.scss";
 
 const Home = () => {
@@ -18,10 +20,10 @@ const Home = () => {
                     <div className="content">
                         <div className="line"></div>
 
-                        <h1>
+                        <h1 className="large-heading">
                             Authentic taste <br /> at its finest.
                         </h1>
-                        <p>
+                        <p className="section-paragraph">
                             Our commitment to using only the highest quality ingredients ensures
                             that every dish is bursting with flavor. Whether you're looking for a
                             quick bite or a gourmet meal, we've got you covered.
@@ -42,6 +44,8 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {/* ------------------ STORE INFO ------------------ */}
 
             <section id="cards-info">
                 <div className="cards-info">
@@ -161,6 +165,9 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {/* ------------------ CATEGORIES/MENU ------------------ */}
+            <Categories />
         </>
     );
 };
