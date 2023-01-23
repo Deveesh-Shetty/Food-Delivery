@@ -24,6 +24,24 @@
             background-color: $primary-color-hover;
         }
     }
+
+    &--light {
+        color: #fff;
+        border-color: #fff;
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
+
+    &--light-filled {
+        color: #000 !important;
+        background-color: #fff !important;
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
 }
 
 .link {
@@ -47,7 +65,15 @@
 .line {
     height: 4px;
     background-color: $primary-color;
-    max-width: 80px;
+    max-width: 5rem;
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+
+    &--wide {
+        max-width: 7rem;
+    }
+
+    &--light {
+        background-color: #fff;
+    }
 }
