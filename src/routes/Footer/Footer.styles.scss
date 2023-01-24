@@ -1,0 +1,123 @@
+@import "../../styles/variables.scss";
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-color;
+    color: #fff;
+    padding-top: 4rem;
+    padding-bottom: 2.5rem;
+
+    gap: 3rem;
+
+    .upper {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+
+        .left {
+            &__logo {
+                font-size: 2rem;
+            }
+
+            &__desc {
+                font-weight: 200;
+                max-width: 60%;
+                font-size: 0.9rem;
+                color: $light-gray-color;
+            }
+        }
+    }
+
+    .social {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+
+        a {
+            display: inline-block;
+            transition: transform 0.15s ease;
+            font-size: 1.15rem;
+
+            &:hover {
+                transform: translateY(-2px);
+            }
+        }
+    }
+
+    .contact {
+        margin-top: 2rem;
+        .group {
+            &__label {
+            }
+            &__link {
+                margin-left: 0.5rem;
+                color: $light-gray-color;
+                transition: color 0.15s ease;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+
+        .credits {
+            &__icon {
+                font-size: 1rem;
+                font-weight: 500;
+            }
+        }
+
+        .legal {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            a {
+                color: $light-gray-color;
+                transition: color 0.15s ease;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .nav {
+        display: flex;
+        gap: 1rem;
+
+        &__sub-link {
+            color: $light-gray-color;
+            transition: color 0.15s ease;
+
+            &:is(a):hover {
+                color: #fff;
+            }
+        }
+
+        .list {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            width: 100%;
+
+            &__heading {
+                display: inline-block;
+                margin-bottom: 1rem;
+            }
+
+            &__inner {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    }
+}
