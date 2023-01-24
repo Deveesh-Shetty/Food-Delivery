@@ -1,6 +1,5 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 import bakedSushiCateg from "../../assets/images/categories/baked-sushi.jpg";
 import pastaCateg from "../../assets/images/categories/pasta.jpg";
@@ -11,7 +10,6 @@ import milkTeaCateg from "../../assets/images/categories/milk-tea.jpg";
 
 import { BsArrowRight } from "react-icons/bs";
 
-import "swiper/css";
 import "./Categories.styles.scss";
 
 const CATEGORIES_DATA = [
@@ -73,29 +71,27 @@ const Categories = () => {
                     </p>
                 </div>
 
-                <div className="slides">
-                    <Swiper slidesPerView={2} spaceBetween={30}>
-                        {CATEGORIES_DATA.map(({ id, title, desc, thumbnail, path }) => (
-                            <SwiperSlide key={id}>
-                                <a href={path}>
-                                    <div className="thumbnail">
-                                        <div
-                                            className="thumbnail__img"
-                                            style={{ backgroundImage: `url(${thumbnail})` }}
-                                        ></div>
+                <div className="menu">
+                    {CATEGORIES_DATA.map(({ id, title, desc, thumbnail, path }) => (
+                        <div className="menu__item" key={id}>
+                            <a href={path}>
+                                <div className="thumbnail">
+                                    <div
+                                        className="thumbnail__img"
+                                        style={{ backgroundImage: `url(${thumbnail})` }}
+                                    ></div>
+                                </div>
+                                <div className="info">
+                                    <h3>{title}</h3>
+                                    <p>{desc}</p>
+                                    <div className="link">
+                                        <span>Browse Menu</span>
+                                        <BsArrowRight />
                                     </div>
-                                    <div className="info">
-                                        <h3>{title}</h3>
-                                        <p>{desc}</p>
-                                        <div className="link">
-                                            <span>Browse Menu</span>
-                                            <BsArrowRight />
-                                        </div>
-                                    </div>
-                                </a>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                                </div>
+                            </a>
+                        </div>
+                    ))}
                 </div>
 
                 <div className="actions">
