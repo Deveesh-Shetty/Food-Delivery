@@ -127,42 +127,6 @@ const Home = () => {
                                 <BsArrowRight />
                             </a>
                         </div>
-
-                        {/* <div className="divider"></div> */}
-
-                        {/* <div className="card">
-                            <h3>Contact</h3>
-
-                            <div className="details">
-                                <div className="details__item">
-                                    <span className="label">Call:</span>
-                                    <a href="tel:09351523895" className="value">
-                                        (+63) 935-1523-895
-                                    </a>
-                                </div>
-                                <div className="details__item">
-                                    <span className="label">Email:</span>
-                                    <a
-                                        href="mailto:kalim.cucinareofficialph@gmail.com"
-                                        className="value"
-                                    >
-                                        kalim.cucinareofficialph@gmail.com
-                                    </a>
-                                </div>
-                                <div className="details__item">
-                                    <span className="label">Location:</span>
-                                    <span className="value">
-                                        525 Jose Abad Santos, Brgy. Salapungan 2009 Angeles City,
-                                        Philippines
-                                    </span>
-                                </div>
-                            </div>
-
-                            <a href="#" className="link">
-                                <span>Learn More</span>
-                                <BsArrowRight />
-                            </a>
-                        </div> */}
                     </div>
                 </div>
             </section>
