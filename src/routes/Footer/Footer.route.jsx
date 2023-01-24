@@ -131,10 +131,10 @@ const Footer = () => {
                         <li>
                             <h3 className="list__heading">Address</h3>
 
-                            <li className="nav__sub-link">
+                            <div className="nav__sub-link">
                                 525 Jose Abad Santos, Brgy. Salapungan 2009 Angeles City,
                                 Philippines
-                            </li>
+                            </div>
                         </li>
                     </ul>
                 </nav>
