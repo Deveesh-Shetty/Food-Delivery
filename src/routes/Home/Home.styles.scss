@@ -40,13 +40,14 @@
     padding-top: 5rem;
     margin-top: 5rem;
 
-    .large-img {
+    .banner {
+        background-position-y: 11%;
+        background-size: cover;
         display: block;
         max-width: 90vw;
+        width: 100%;
         margin: 0 0 0 auto;
         height: 35rem;
-        width: 100%;
-        object-fit: cover;
     }
 
     .cards {
@@ -57,7 +58,7 @@
         flex-wrap: wrap;
         background-color: #fff;
         padding: 3rem 2rem;
-        max-width: 90vw;
+        max-width: 60vw;
     }
 
     .divider {
@@ -84,11 +85,11 @@
             justify-content: space-between;
         }
 
-        &:last-child .details__item {
-            flex-direction: column;
-            gap: 0.5rem;
-            align-items: flex-start;
-        }
+        // &:last-child .details__item {
+        //     flex-direction: column;
+        //     gap: 0.5rem;
+        //     align-items: flex-start;
+        // }
 
         .details {
             margin: 1.5rem 0 2rem 0;
