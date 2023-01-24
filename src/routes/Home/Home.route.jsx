@@ -10,6 +10,7 @@ import { SiTiktok } from "react-icons/si";
 import Categories from "../../components/Categories/Categories.component";
 
 import "./Home.styles.scss";
+import Feedback from "../../components/Feedback/Feedback.components";
 
 const Home = () => {
     return (
@@ -156,6 +157,9 @@ const Home = () => {
                     <div className="banner" style={{ backgroundImage: `url(${lasagnaSrc})` }} />
                 </div>
             </section>
+
+            {/* ------------------ FEEDBACK ------------------ */}
+            <Feedback />
         </>
     );
 };
