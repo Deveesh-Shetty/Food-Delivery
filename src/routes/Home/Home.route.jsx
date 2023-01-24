@@ -1,7 +1,7 @@
 import React from "react";
 
 import bakedSushiSrc from "../../assets/images/baked-sushi.jpg";
-import scallopsSrc from "../../assets/images/scallops.jpg";
+import storeFrontSrc from "../../assets/images/store-front.jpg";
 import lasagnaSrc from "../../assets/images/lasagna.jpg";
 
 import { BsArrowRight, BsInstagram, BsFacebook } from "react-icons/bs";
@@ -50,7 +50,7 @@ const Home = () => {
 
             <section id="cards-info">
                 <div className="cards-info">
-                    <img className="large-img" src={scallopsSrc} alt="Scallops Pasta" />
+                    <div className="banner" style={{ backgroundImage: `url(${storeFrontSrc})` }} />
 
                     <div className="cards section-px">
                         <div className="card">
@@ -128,9 +128,9 @@ const Home = () => {
                             </a>
                         </div>
 
-                        <div className="divider"></div>
+                        {/* <div className="divider"></div> */}
 
-                        <div className="card">
+                        {/* <div className="card">
                             <h3>Contact</h3>
 
                             <div className="details">
@@ -162,7 +162,7 @@ const Home = () => {
                                 <span>Learn More</span>
                                 <BsArrowRight />
                             </a>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>
@@ -177,7 +177,7 @@ const Home = () => {
                         <div className="section-heading">
                             <div className="line"></div>
                             <h2 className="primary-heading">
-                                Savor an unparalleled taste sensation
+                                Savor an unparalleled taste sensation.
                             </h2>
                             <p className="section-paragraph">
                                 Indulge in the complexity and depth of flavors as they dance on your
