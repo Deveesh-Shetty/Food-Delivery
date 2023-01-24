@@ -21,7 +21,7 @@
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
 
         &__item {
             .link {
@@ -29,7 +29,7 @@
             }
 
             &:hover {
-                img {
+                .thumbnail__img {
                     transform: scale(1.035);
                 }
 
