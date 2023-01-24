@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import Footer from "./routes/Footer/Footer.route";
 
 import Header from "./routes/Header/Header.route";
 import Home from "./routes/Home/Home.route";
@@ -7,7 +8,14 @@ import Home from "./routes/Home/Home.route";
 const App = () => {
     return (
         <Routes>
-            <Route path="/" element={<Header />}>
+            <Route
+                path="/"
+                element={
+                    <>
+                        <Header /> <Footer />
+                    </>
+                }
+            >
                 <Route index element={<Home />} />
                 {/* <Route
                     path="/calculator"
@@ -30,6 +38,7 @@ const App = () => {
                     <>
                         <Header />
                         <p>There is nothing here!</p>
+                        <Footer />
                     </>
                 }
             />
@@ -38,3 +47,5 @@ const App = () => {
 };
 
 export default App;
+
+console.log(`Built by: Renz Vital (https://rvitality.github.io/v1/)`);
