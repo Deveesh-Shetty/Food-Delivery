@@ -2,6 +2,7 @@ import React from "react";
 
 import bakedSushiSrc from "../../assets/images/baked-sushi.jpg";
 import scallopsSrc from "../../assets/images/scallops.jpg";
+import lasagnaSrc from "../../assets/images/lasagna.jpg";
 
 import { BsArrowRight, BsInstagram, BsFacebook } from "react-icons/bs";
 import { SiTiktok } from "react-icons/si";
@@ -152,7 +153,7 @@ const Home = () => {
                                     <span className="label">Location:</span>
                                     <span className="value">
                                         525 Jose Abad Santos, Brgy. Salapungan 2009 Angeles City,
-                                        Philippines.
+                                        Philippines
                                     </span>
                                 </div>
                             </div>
@@ -168,6 +169,29 @@ const Home = () => {
 
             {/* ------------------ CATEGORIES/MENU ------------------ */}
             <Categories />
+
+            {/* ------------------ CATEGORIES ------------------ */}
+            <section id="about">
+                <div className="about section-py">
+                    <div className="content">
+                        <div className="section-heading">
+                            <div className="line"></div>
+                            <h2 className="primary-heading">
+                                Savor an unparalleled taste sensation
+                            </h2>
+                            <p className="section-paragraph">
+                                Indulge in the complexity and depth of flavors as they dance on your
+                                tongue, leaving you with a lasting impression.
+                            </p>
+                        </div>
+
+                        <a href="#" className="btn ">
+                            About Us
+                        </a>
+                    </div>
+                    <div className="banner" style={{ backgroundImage: `url(${lasagnaSrc})` }} />
+                </div>
+            </section>
         </>
     );
 };

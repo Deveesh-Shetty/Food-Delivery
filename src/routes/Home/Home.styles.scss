@@ -124,3 +124,40 @@
         }
     }
 }
+
+.about {
+    display: flex;
+    position: relative;
+    border: aliceblue;
+    align-items: center;
+    overflow: hidden;
+    margin: 10rem 0;
+
+    .section-heading {
+        align-items: flex-start;
+        margin-bottom: 2.5rem;
+
+        h2 {
+            font-weight: 400;
+        }
+    }
+
+    .content {
+        background: #fff;
+        width: 55%;
+        padding: 5rem;
+    }
+
+    .banner {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        width: 80%;
+        height: 50rem;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
