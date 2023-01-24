@@ -61,7 +61,7 @@ const Categories = () => {
     return (
         <section id="categories">
             <div className="categories section-py">
-                <div className="heading">
+                <div className="section-heading">
                     <div className="line line--wide line--light"></div>
 
                     <h2 className="primary-heading">Explore our Menu </h2>
