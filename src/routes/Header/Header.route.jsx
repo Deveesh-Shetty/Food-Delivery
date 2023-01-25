@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 
 import { HiOutlineShoppingBag } from "react-icons/hi";
 
@@ -11,16 +11,16 @@ const Header = () => {
             <header className="section-px">
                 <div className="left">
                     <h1>
-                        <a href="#">kalim.</a>
+                        <NavLink to="/">kalim.</NavLink>
                     </h1>
                 </div>
 
                 <nav className="nav">
                     <ul>
                         <li>
-                            <a className="nav__link" href="#">
+                            <NavLink className="nav__link" to="/menu">
                                 Menu
-                            </a>
+                            </NavLink>
                         </li>
                         <li>
                             <a className="nav__link" href="#">
