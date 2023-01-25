@@ -3,6 +3,8 @@
 .section-paragraph {
     color: $primary-light;
     line-height: 1.667em;
+    max-width: 50%;
+    text-align: center;
 
     &--dark {
         color: $light-gray-color;
