@@ -32,6 +32,7 @@
 
     .section-paragraph {
         max-width: 90%;
+        text-align: left;
     }
 }
 
@@ -133,6 +134,11 @@
 
         h2 {
             font-weight: 400;
+        }
+
+        .section-paragraph {
+            text-align: left;
+            max-width: 90%;
         }
     }
 
