@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { BsArrowRight, BsInstagram, BsFacebook } from "react-icons/bs";
 import { SiTiktok } from "react-icons/si";
@@ -11,7 +12,7 @@ const Footer = () => {
             <div className="upper">
                 <div className="left">
                     <h2 className="left__logo">
-                        <a href="#">kalim.</a>
+                        <Link to="/">kalim.</Link>
                     </h2>
 
                     <p className="left__desc">
