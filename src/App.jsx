@@ -4,6 +4,7 @@ import Footer from "./routes/Footer/Footer.route";
 
 import Header from "./routes/Header/Header.route";
 import Home from "./routes/Home/Home.route";
+import Menu from "./routes/Menu/Menu.route";
 
 const App = () => {
     return (
@@ -17,6 +18,7 @@ const App = () => {
                 }
             >
                 <Route index element={<Home />} />
+                <Route path="menu/*" element={<Menu />} />
                 {/* <Route
                     path="/calculator"
                     element={isAuthenticated ? <CalculatorGraph /> : <Navigate to="/" />}
