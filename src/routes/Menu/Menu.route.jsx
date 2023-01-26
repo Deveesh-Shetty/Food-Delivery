@@ -93,8 +93,9 @@ const Menu = () => {
                     <div className="line"></div>
                     <h1 className="large-heading">Our Menu</h1>
                     <p className="section-paragraph">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, nostrum
-                        molestias tenetur dicta odio placeat!
+                        Elevate your taste buds with our delectable dishes that are sure to please
+                        even the most discerning palate. Our menu is carefully curated to offer a
+                        wide variety of flavors and textures that will tantalize your senses.
                     </p>
                 </div>
 
