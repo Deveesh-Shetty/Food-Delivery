@@ -1,8 +1,6 @@
 .product-preview {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
     &:hover {
         .photo img {
@@ -15,10 +13,12 @@
     }
 
     .photo {
-        width: 20rem;
+        width: 18.75rem;
+        height: 17rem;
         overflow: hidden;
 
         img {
+            display: block;
             height: 100%;
             width: 100%;
             object-fit: cover;
@@ -26,25 +26,25 @@
         }
     }
 
-    .product {
+    .details {
         &__price {
-            font-size: 1.35rem;
+            font-size: 1.5rem;
             color: #5e5e5e;
             line-height: 1.111em;
             font-weight: 500;
         }
         &__name {
-            margin-top: 0.6rem;
-            margin-bottom: 0.3rem;
+            margin-top: 1rem;
+            margin-bottom: 0.2rem;
             font-weight: 500;
-            font-size: 1.65rem;
+            font-size: 1.8rem;
         }
 
         &__desc {
             line-height: 1.667em;
-            margin-bottom: 1.25rem;
+            margin-bottom: 2rem;
             color: #5a5a5a;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             max-width: 90%;
         }
 
@@ -52,7 +52,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
 
             svg {
                 font-size: 1.5rem;
