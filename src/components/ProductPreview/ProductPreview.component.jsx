@@ -6,9 +6,7 @@ import { BsArrowRight } from "react-icons/bs";
 import "./ProductPreview.styles.scss";
 
 const ProductPreview = ({ product, onProductSelect }) => {
-    let { productId, name, photo, prices, description } = product;
-    const { size, cost } = prices;
-
+    let { productId, name, photos, prices, description } = product;
     const productPath = name.toLowerCase().split(" ").join("_");
 
     description =
@@ -24,7 +22,7 @@ const ProductPreview = ({ product, onProductSelect }) => {
             className="product-preview"
         >
             <div className="photo">
-                <img src={photo} alt={name} />
+                <img src={photos[0]} alt={name} />
             </div>
             <div className="details">
                 <div className="details__price">₱ 15.99</div>
