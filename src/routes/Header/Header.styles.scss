@@ -6,11 +6,13 @@ header {
     padding-top: 2rem;
     width: 100%;
     background-color: #fff;
-    z-index: 99;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     transition: all 0.2s ease-in;
+    position: sticky;
+    z-index: 99;
+    top: 0;
 
     @include respond(phone) {
         padding: 1.5rem 2rem;
@@ -53,44 +55,72 @@ header {
         gap: 4rem;
     }
 
-    .cart {
-        display: flex;
-        align-items: flex-end;
-        gap: 1.25rem;
-        font-size: 0.9rem;
+    .cart-container {
+        position: relative;
 
-        &:hover {
-            .cart__items {
-                transform: translateY(-2px);
+        .cart {
+            display: flex;
+            align-items: flex-end;
+            gap: 1.25rem;
+            font-size: 0.9rem;
+            background: none;
+            border: none;
+
+            &:hover {
+                .cart__items {
+                    transform: translateY(-2px);
+                }
+            }
+
+            &__bag {
+                position: relative;
+            }
+
+            &__items {
+                position: absolute;
+                right: -0.7rem;
+                top: -0.6rem;
+                color: #fff;
+                width: 1.25rem;
+                height: 1.25rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background-color: $primary-color;
+                font-size: 0.7rem;
+                transition: transform 0.15s ease-in-out;
+            }
+
+            svg {
+                font-size: 1.5rem;
+            }
+
+            &__total {
+                font-weight: 300;
             }
         }
+    }
 
-        &__bag {
-            position: relative;
+    .bump {
+        animation: bump 300ms ease-out;
+    }
+
+    @keyframes bump {
+        0% {
+            transform: scale(1);
         }
-
-        &__items {
-            position: absolute;
-            right: -0.7rem;
-            top: -0.6rem;
-            color: #fff;
-            width: 1.25rem;
-            height: 1.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background-color: $primary-color;
-            font-size: 0.7rem;
-            transition: transform 0.15s ease-in-out;
+        10% {
+            transform: scale(0.9);
         }
-
-        svg {
-            font-size: 1.5rem;
+        30% {
+            transform: scale(1.1);
         }
-
-        &__total {
-            font-weight: 300;
+        50% {
+            transform: scale(1.15);
+        }
+        100% {
+            transform: scale(1);
         }
     }
 }
