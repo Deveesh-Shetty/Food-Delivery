@@ -1,9 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
+import Product from "../../components/Product/Product.component";
 import ProductPreview from "../../components/ProductPreview/ProductPreview.component";
+
+import { BsArrowLeft } from "react-icons/bs";
 
 import "./Menu.styles.scss";
 
@@ -15,45 +18,59 @@ const DATA = [
             {
                 productId: uuidv4(),
                 name: "Tuna Kali",
-                photo: "https://assets.website-files.com/621d856f5870fe664b678e8e/621d856f5870fe72e8679015_image-3-menu-restaurantly-template.jpg",
-                prices: [
-                    { size: "Solo", cost: 278 },
-                    { size: "Double", cost: 578 },
-                    { size: "Party", cost: 1228 },
+                photos: [
+                    "https://assets.website-files.com/621d856f5870fe664b678e8e/621d856f5870fe72e8679015_image-3-menu-restaurantly-template.jpg",
+                    "https://assets.website-files.com/621d856f5870fe664b678e8e/621d856f5870fe38b5679012_image-1-menu-restaurantly-template.jpg",
+                    "https://assets.website-files.com/621d856f5870fe664b678e8e/621d856f5870fe2fb667900d_image-7-menu-restaurantly-template.jpeg",
+                    "https://assets.website-files.com/621d856f5870fe664b678e8e/621d856f5870fe6257679014_image-2-menu-restaurantly-template.jpeg",
+                    "https://assets.website-files.com/621d856f5870fe664b678e8e/621d856f5870fe77ed679016_image-6-menu-restaurantly-template.jpeg",
                 ],
-                description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                prices: {
+                    solo: 278,
+                    double: 578,
+                    party: 1228,
+                },
+                description:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
             },
             {
                 productId: uuidv4(),
                 name: "Kani Aburi",
-                photo: "https://assets.website-files.com/621d856f5870fe664b678e8e/621d856f5870fe2c23679017_image-4-menu-restaurantly-template.jpeg",
-                prices: [
-                    { size: "Solo", cost: 298 },
-                    { size: "Double", cost: 598 },
-                    { size: "Party", cost: 1248 },
+                photos: [
+                    "https://assets.website-files.com/621d856f5870fe664b678e8e/621d856f5870fe2c23679017_image-4-menu-restaurantly-template.jpeg",
                 ],
+                prices: {
+                    solo: 298,
+                    double: 598,
+                    party: 1248,
+                },
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
             },
             {
                 productId: uuidv4(),
                 name: "Crispy Bacon",
-                photo: "https://assets.website-files.com/621d856f5870fe664b678e8e/621d856f5870fe77ed679016_image-6-menu-restaurantly-template.jpeg",
-                prices: [
-                    { size: "Solo", cost: 308 },
-                    { size: "Double", cost: 608 },
-                    { size: "Party", cost: 1258 },
+                photos: [
+                    "https://assets.website-files.com/621d856f5870fe664b678e8e/621d856f5870fe77ed679016_image-6-menu-restaurantly-template.jpeg",
                 ],
+                prices: {
+                    solo: 308,
+                    double: 608,
+                    party: 1258,
+                },
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
             },
             {
                 productId: uuidv4(),
                 name: "Cheesy Samgyup",
-                photo: "https://assets.website-files.com/621d856f5870fe664b678e8e/621d856f5870fe6257679014_image-2-menu-restaurantly-template.jpeg",
-                prices: [
-                    { size: "Solo", cost: 328 },
-                    { size: "Double", cost: 628 },
-                    { size: "Party", cost: 1278 },
+                photos: [
+                    "https://assets.website-files.com/621d856f5870fe664b678e8e/621d856f5870fe6257679014_image-2-menu-restaurantly-template.jpeg",
                 ],
+                prices: {
+                    solo: 328,
+                    double: 628,
+                    party: 1278,
+                },
+
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
             },
         ],
@@ -81,10 +98,20 @@ const DATA = [
 ];
 
 const Menu = () => {
-    const [selectedCategory, setSelectedCategory] = useState(DATA[0]?.id);
-    const [products, setProducts] = useState(DATA[0]?.products);
+    const [selectedCategory, setSelectedCategory] = useState(DATA[0]);
+    // const [products, setProducts] = useState(DATA[0]?.products);
+    const products = selectedCategory?.products;
 
-    const changeCategoryHandler = id => setSelectedCategory(id);
+    const [selectedProduct, setSelectedProduct] = useState();
+
+    const changeCategoryHandler = category => {
+        setSelectedCategory(category);
+        setSelectedProduct();
+    };
+
+    const productSelectionHandler = product => {
+        setSelectedProduct(product);
+    };
 
     return (
         <section id="menu">
@@ -107,9 +134,9 @@ const Menu = () => {
                             <button
                                 key={id}
                                 className={`options__item ${
-                                    selectedCategory === id ? "highlight" : ""
+                                    selectedCategory?.id === id ? "highlight" : ""
                                 }`}
-                                onClick={() => changeCategoryHandler(id)}
+                                onClick={() => changeCategoryHandler(item)}
                             >
                                 {category}
                             </button>
@@ -117,11 +144,30 @@ const Menu = () => {
                     })}
                 </div>
 
-                <div className="products">
-                    {products?.map(product => (
-                        <ProductPreview key={product.productId} product={product} />
-                    ))}
-                </div>
+                {!selectedProduct && (
+                    <div className="products">
+                        {products?.map(product => (
+                            <ProductPreview
+                                onProductSelect={productSelectionHandler}
+                                key={product.productId}
+                                product={product}
+                            />
+                        ))}
+                    </div>
+                )}
+
+                {selectedProduct && (
+                    <Link
+                        to="/menu"
+                        className="link link--reversed back-btn"
+                        onClick={() => setSelectedProduct()}
+                    >
+                        <BsArrowLeft />
+                        <span>Back</span>
+                    </Link>
+                )}
+
+                {selectedProduct && <Product {...selectedProduct} />}
             </div>
         </section>
     );
