@@ -60,6 +60,14 @@
             transform: translateX(5px);
         }
     }
+
+    &--reversed {
+        &:hover {
+            svg {
+                transform: translateX(-5px);
+            }
+        }
+    }
 }
 
 .line {
