@@ -6,6 +6,16 @@
         max-width: 60%;
     }
 
+    .back-btn {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        color: $primary-light;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: -1.5rem;
+        display: flex;
+    }
+
     .options {
         border-bottom: 1px solid #dadada;
         display: flex;
