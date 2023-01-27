@@ -1,16 +1,40 @@
 import React, { useState } from "react";
 
-import "./Product.styles.scss";
-
 import { MdOutlineAdd } from "react-icons/md";
-import { HiOutlineMinusSm } from "react-icons/hi";
+import { HiOutlineMinusSm, HiOutlineShoppingCart } from "react-icons/hi";
 import { BiTime } from "react-icons/bi";
 import { AiOutlineStock, AiFillStar } from "react-icons/ai";
 
-const Product = props => {
-    const { productId, name, photo, prices, description } = props;
+import { useCartContext } from "../../context/CartContext";
 
+import ProductImgSlider from "../ProductImgSlider/ProductImgSlider.component";
+
+import "./Product.styles.scss";
+
+const Product = props => {
+    const { cart, onCartUpdate } = useCartContext();
+
+    const { productId, name, photos, prices, description } = props;
+
+    // order details that will be added to cart
+
+    const [selectedSize, setSelectedSize] = useState("solo");
     const [quantity, setQuantity] = useState(1);
+
+    const total = prices[selectedSize] * quantity;
+
+    const order = {
+        productId,
+        name,
+        quantity,
+        selectedSize,
+        photos,
+        total,
+    };
+
+    const sizeChangeHandler = e => {
+        setSelectedSize(e.target.value);
+    };
 
     const quantityChangeHandler = e => {
         const inputValue = e.target.value.replace(/[^0-9]/g, "");
@@ -23,7 +47,6 @@ const Product = props => {
     };
 
     const quantityButtonClickHandler = type => {
-        console.log(type);
         setQuantity(prevState => {
             let value = prevState;
 
@@ -37,20 +60,14 @@ const Product = props => {
         });
     };
 
-    // prices: [
-    //     { size: "Solo", cost: 278 },
-    //     { size: "Double", cost: 578 },
-    //     { size: "Party", cost: 1228 },
-    // ],
-
-    const [selectedValue, setSelectedValue] = useState();
-
-    const handleChange = e => setSelectedValue(e.target.value);
+    const cartAddItemHandler = () => {
+        onCartUpdate(order);
+    };
 
     return (
         <div className="product">
             <div className="product__photo">
-                <img src={photo} alt={name} />
+                {photos.length > 0 && <ProductImgSlider photos={photos || []} />}
             </div>
             <div className="details">
                 <div className="line"></div>
@@ -83,18 +100,24 @@ const Product = props => {
                 <p className="details__desc">{description}</p>
 
                 <div className="price">
-                    ₱<span className="price__value">5,999</span>
+                    ₱
+                    <span className="price__value">
+                        {total.toLocaleString("en", {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                        })}
+                    </span>
                 </div>
 
                 <div className="size">
                     <div className="group">
                         <input
-                            onChange={handleChange}
+                            onChange={sizeChangeHandler}
                             type="radio"
                             name="size"
-                            value="Solo"
+                            value="solo"
                             id="solo"
-                            readOnly
+                            defaultChecked
                         />
                         <label htmlFor="solo">
                             <span className="highlight">Solo</span> (6x4x1") Good for 1-2 persons
@@ -102,10 +125,10 @@ const Product = props => {
                     </div>
                     <div className="group">
                         <input
-                            onChange={handleChange}
+                            onChange={sizeChangeHandler}
                             type="radio"
                             name="size"
-                            value="Double"
+                            value="double"
                             id="double"
                         />
                         <label htmlFor="double">
@@ -114,10 +137,10 @@ const Product = props => {
                     </div>
                     <div className="group">
                         <input
-                            onChange={handleChange}
+                            onChange={sizeChangeHandler}
                             type="radio"
                             name="size"
-                            value="Party"
+                            value="party"
                             id="party"
                         />
                         <label htmlFor="party">
@@ -150,6 +173,17 @@ const Product = props => {
                         onClick={() => quantityButtonClickHandler("add")}
                     >
                         <MdOutlineAdd />
+                    </button>
+                </div>
+
+                <div className="actions">
+                    <button className="add-to-cart btn" onClick={() => cartAddItemHandler()}>
+                        <span>Add to Cart</span>
+                        <HiOutlineShoppingCart />
+                    </button>
+
+                    <button className="btn btn__filled">
+                        <span>Check Out</span>
                     </button>
                 </div>
             </div>
