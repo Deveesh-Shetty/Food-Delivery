@@ -11,6 +11,8 @@ const CartContext = createContext(initialState);
 export const CartContextProvider = props => {
     const [cart, setCart] = useState([]);
 
+    const cartTotal = cart.length > 0 ? cart.reduce((sum, order) => sum + order.total, 0) : 0;
+
     const cartChangeHandler = order => {
         const existingOrderIndex = cart.findIndex(item => item.productId === order.productId);
 
@@ -31,11 +33,10 @@ export const CartContextProvider = props => {
         }
     };
 
-    console.log(cart);
-
     const contextValue = {
         cart,
         onCartUpdate: cartChangeHandler,
+        cartTotal,
     };
 
     return <CartContext.Provider value={contextValue}>{props.children}</CartContext.Provider>;
