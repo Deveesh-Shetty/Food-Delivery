@@ -248,6 +248,17 @@ const Product = props => {
                     </div>
                 </div>
 
+                <div className="order-total">
+                    <h3> Total</h3>
+                    <div className="value">
+                        ₱{" "}
+                        {orderTotal.toLocaleString("en", {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                        })}
+                    </div>
+                </div>
+
                 <div className="actions">
                     <button className="add-to-cart btn" onClick={() => cartAddItemHandler()}>
                         <span>Add to Cart</span>
