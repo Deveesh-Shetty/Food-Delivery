@@ -10,6 +10,13 @@ import { useCartContext } from "../../context/CartContext";
 import ProductImgSlider from "../ProductImgSlider/ProductImgSlider.component";
 
 import "./Product.styles.scss";
+import AddOn from "../AddOn/AddOn.component";
+
+const freeNori = {
+    solo: 1,
+    double: 2,
+    party: 4,
+};
 
 const Product = props => {
     const { cart, onCartUpdate } = useCartContext();
@@ -21,7 +28,37 @@ const Product = props => {
     const [selectedSize, setSelectedSize] = useState("solo");
     const [quantity, setQuantity] = useState(1);
 
+    const [addOns, setAddOns] = useState([]);
+
+    const addOnsChangeHandler = ({ type, item }) => {
+        if (type === "add") {
+            const existingAddOnIndex = addOns.findIndex(addOn => addOn.id === item.id);
+
+            // add new add-on
+            if (existingAddOnIndex < 0) {
+                setAddOns(prevState => [item, ...prevState]);
+            } else {
+                // update add-on
+                setAddOns(prevState => {
+                    return prevState.map(addOn => {
+                        if (addOn.id === item.id) {
+                            return item;
+                        }
+
+                        return addOn;
+                    });
+                });
+            }
+        } else if (type === "remove") {
+            setAddOns(prevState => prevState.filter(addOn => addOn.id !== item.id));
+        }
+    };
+
+    const addOnsTotal = addOns?.reduce((sum, item) => sum + item.totalPrice, 0);
+    // item total (based on size)
     const total = prices[selectedSize] * quantity;
+
+    const orderTotal = addOnsTotal + total;
 
     const order = {
         productId,
@@ -29,7 +66,9 @@ const Product = props => {
         quantity,
         selectedSize,
         photos,
-        total,
+        total: orderTotal,
+        freebies: [{ name: "nori", quantity: freeNori[selectedSize] }],
+        addOns,
     };
 
     const sizeChangeHandler = e => {
@@ -70,12 +109,12 @@ const Product = props => {
                 {photos.length > 0 && <ProductImgSlider photos={photos || []} />}
             </div>
             <div className="details">
-                <div className="line"></div>
-
                 <div className="tags">
                     <div className="tag">#bestseller</div>
                     <div className="tag">#mostliked</div>
                 </div>
+
+                <div className="line"></div>
 
                 <h2 className="details__name large-heading">{name}</h2>
                 <div className="stats">
@@ -99,9 +138,9 @@ const Product = props => {
                 </div>
                 <p className="details__desc">{description}</p>
 
-                <div className="price">
+                <div className="total">
                     ₱
-                    <span className="price__value">
+                    <span className="total__value">
                         {total.toLocaleString("en", {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2,
@@ -119,9 +158,15 @@ const Product = props => {
                             id="solo"
                             defaultChecked
                         />
-                        <label htmlFor="solo">
-                            <span className="highlight">Solo</span> (6x4x1") Good for 1-2 persons
-                        </label>
+                        <div>
+                            <label htmlFor="solo">
+                                <span className="highlight">Solo</span> (6x4x1") Good for 1-2
+                                persons
+                            </label>
+                            <div className="free">
+                                {freeNori["solo"]} <span className="highlight">FREE</span> Nori
+                            </div>
+                        </div>
                     </div>
                     <div className="group">
                         <input
@@ -131,9 +176,16 @@ const Product = props => {
                             value="double"
                             id="double"
                         />
-                        <label htmlFor="double">
-                            <span className="highlight">Double</span> (8x8x1") Good for 3-6 persons
-                        </label>
+
+                        <div>
+                            <label htmlFor="double">
+                                <span className="highlight">Double</span> (8x8x1") Good for 3-6
+                                persons
+                            </label>
+                            <div className="free">
+                                {freeNori["double"]} <span className="highlight">FREE</span> Nori
+                            </div>
+                        </div>
                     </div>
                     <div className="group">
                         <input
@@ -143,37 +195,46 @@ const Product = props => {
                             value="party"
                             id="party"
                         />
-                        <label htmlFor="party">
-                            {" "}
-                            <span className="highlight">Party</span> (13x10x1") Good for 7-10
-                            persons
-                        </label>
+                        <div>
+                            <label htmlFor="party">
+                                {" "}
+                                <span className="highlight">Party</span> (13x10x1") Good for 7-10
+                                persons
+                            </label>
+
+                            <div className="free">
+                                {freeNori["party"]} <span className="highlight">FREE</span> Nori
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div className="quantity">
-                    <button
-                        className="quantity__btn quantity__minus"
-                        type="button"
-                        onClick={() => quantityButtonClickHandler("minus")}
-                    >
-                        <HiOutlineMinusSm />
-                    </button>
-                    <input
-                        type="text"
-                        name="quantity"
-                        value={quantity}
-                        onChange={quantityChangeHandler}
-                        onBlur={quantityOnBlurHandler}
-                        className="quantity__value"
-                    />
-                    <button
-                        className="quantity__btn quantity__add"
-                        type="button"
-                        onClick={() => quantityButtonClickHandler("add")}
-                    >
-                        <MdOutlineAdd />
-                    </button>
+                <div className="quantity-container">
+                    <h3>Quantity </h3>
+                    <div className="quantity">
+                        <button
+                            className="quantity__btn quantity__minus"
+                            type="button"
+                            onClick={() => quantityButtonClickHandler("minus")}
+                        >
+                            <HiOutlineMinusSm />
+                        </button>
+                        <input
+                            type="text"
+                            name="quantity"
+                            value={quantity}
+                            onChange={quantityChangeHandler}
+                            onBlur={quantityOnBlurHandler}
+                            className="quantity__value"
+                        />
+                        <button
+                            className="quantity__btn quantity__add"
+                            type="button"
+                            onClick={() => quantityButtonClickHandler("add")}
+                        >
+                            <MdOutlineAdd />
+                        </button>
+                    </div>
                 </div>
 
                 <div className="actions">
