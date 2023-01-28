@@ -107,6 +107,16 @@
             }
         }
 
+        .quantity-container {
+            margin-top: 2rem;
+            // border-bottom: 1px solid #ddd;
+            // padding-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
         .quantity {
             border: 1px solid #aeaeae;
             display: flex;
