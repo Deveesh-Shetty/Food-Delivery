@@ -16,28 +16,48 @@ const CartDropdown = () => {
 
                 {!cartIsEmpty &&
                     cart?.map(item => {
-                        const { productId, name, quantity, photos, selectedSize, total } = item;
+                        const {
+                            productId,
+                            name,
+                            quantity,
+                            photos,
+                            selectedSize,
+                            total,
+                            addOns,
+                            freebies,
+                        } = item;
                         const firstPhoto = photos[0];
 
                         return (
                             <div className="order" key={productId}>
-                                <img src={firstPhoto} alt={name} className="order__photo" />
+                                <div className="order__left">
+                                    <img src={firstPhoto} alt={name} className="photo" />
 
-                                <div className="order__details">
-                                    <span className="name">{name}</span>
-                                    <span className="size">
-                                        <span className="label">Size:</span> {selectedSize}
-                                    </span>
-                                    <span class="quantity">
-                                        <span className="label">Qty:</span> {quantity}
-                                    </span>
-                                    <span class="price">
-                                        <span className="label">Total:</span> ₱
-                                        {total.toLocaleString("en", {
-                                            minimumFractionDigits: 2,
-                                            maximumFractionDigits: 2,
-                                        })}
-                                    </span>
+                                    <div className="details">
+                                        <span className="name">{name}</span>
+                                        <span className="size">
+                                            <span className="label">Size:</span> {selectedSize}
+                                        </span>
+                                        <span className="quantity">
+                                            <span className="label">Qty:</span> {quantity}
+                                        </span>
+                                        <span className="price">
+                                            <span className="label">Total:</span> ₱
+                                            {total.toLocaleString("en", {
+                                                minimumFractionDigits: 2,
+                                                maximumFractionDigits: 2,
+                                            })}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {/* ------ add-ons ------ */}
+                                <div className="order__right">
+                                    {addOns?.map(addOn => (
+                                        <div key={addOn.id} className="add-on-item">
+                                            + <span>{addOn.qty}</span> <span>{addOn.name}</span>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         );
