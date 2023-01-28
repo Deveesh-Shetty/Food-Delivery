@@ -9,12 +9,10 @@ import "./Header.styles.scss";
 import CartDropdown from "../../components/CartDropdown/CartDropdown.component";
 
 const Header = () => {
-    const { cart } = useCartContext();
+    const { cart, cartTotal } = useCartContext();
     const [cartIsBumped, setCartIsBumped] = useState(false);
 
     const [displayCartDropdown, setDisplayCartDropdown] = useState(false);
-
-    const cartTotal = cart.length > 0 ? cart.reduce((sum, order) => sum + order.total, 0) : 0;
 
     const cartBagClasses = `cart__bag ${cartIsBumped ? "bump" : ""}`;
 
