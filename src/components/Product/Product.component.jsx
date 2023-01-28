@@ -237,6 +237,17 @@ const Product = props => {
                     </div>
                 </div>
 
+                <div className="add-ons">
+                    <h3>Add-ons</h3>
+                    <div className="list">
+                        <AddOn name="nori" price={30} onAddOnsChange={addOnsChangeHandler} />
+                        <AddOn name="spicy" price={10} onAddOnsChange={addOnsChangeHandler} />
+                        <AddOn name="nata" price={10} onAddOnsChange={addOnsChangeHandler} />
+                        <AddOn name="pearl" price={10} onAddOnsChange={addOnsChangeHandler} />
+                        <AddOn name="creampuff" price={10} onAddOnsChange={addOnsChangeHandler} />
+                    </div>
+                </div>
+
                 <div className="actions">
                     <button className="add-to-cart btn" onClick={() => cartAddItemHandler()}>
                         <span>Add to Cart</span>
