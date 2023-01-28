@@ -13,7 +13,6 @@ const MenuOptions = ({ options }) => {
     const products = selectedCategory?.products;
 
     const changeCategoryHandler = category => {
-        console.log(category);
         setSelectedCategory(category);
     };
 
