@@ -1,30 +1,37 @@
-import React from "react";
-import { useCartContext } from "../../context/CartContext";
+import React from "react"
+import { useCartContext } from "../../context/CartContext"
 
-import "./Cart.styles.scss";
+import "./Cart.styles.scss"
 
 const Cart = () => {
-    const { cart } = useCartContext();
+  const { cart } = useCartContext()
+  console.log(cart)
 
-    return (
-        <section id="cart">
-            <div className="cart section-px section-py">
-                {cart.map(item => {
-                    const { productId, name, quantity, selectedSize, total } = item;
+  return (
+    <section id="cart">
+      <div className="cart section-px section-py">
+        {cart.map((item) => {
+          const { productId, name, quantity, selectedSize, total, photos } =
+            item
 
-                    return (
-                        <div key={productId}>
-                            <h1>{name}</h1>
-                            <p>{selectedSize}</p>
-                            <p>{quantity}</p>
-                            <p>{total}</p>
-                            <br />
-                        </div>
-                    );
-                })}
+          return (
+            <div key={productId} className="cart">
+              <img src={photos[0]} alt={name} />
+              <div>
+                <h1>Item: {name}</h1>
+                <div className="cart-specs">
+                  <p>Size: {selectedSize}</p>
+                  <p>Quantity: {quantity}</p>
+                  <p>Total: {total}</p>
+                </div>
+              </div>
+              <br />
             </div>
-        </section>
-    );
-};
+          )
+        })}
+      </div>
+    </section>
+  )
+}
 
-export default Cart;
+export default Cart

@@ -1,0 +1,11 @@
+.cart {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  border: 1px solid black;
+  padding: 1rem;
+}
+.cart > img {
+  width: 10rem;
+  aspect-ratio: 1;
+}
