@@ -74,7 +74,7 @@ const ProductScreen = ({ history, match }) => {
             <Col md={6} style={{ marginInline: "auto" }}>
               <Image src={product.image} alt={product.name} fluid />
             </Col>
-            <Col md={12}>
+            <Col md={12} style={{ marginTop: "2rem" }}>
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <h3>{product.name}</h3>
@@ -90,7 +90,7 @@ const ProductScreen = ({ history, match }) => {
                   Description: {product.description}
                 </ListGroup.Item>
               </ListGroup>
-              <Card className="mt-5">
+              <Card>
                 <ListGroup variant="flush">
                   <ListGroup.Item>
                     <Row>
@@ -150,7 +150,12 @@ const ProductScreen = ({ history, match }) => {
           <Row>
             <Col md={12}>
               <h2 style={{ textAlign: "center", marginTop: "4rem" }}>
-                <span className=" border-danger mr-3 px-3">Reviews</span>
+                <span
+                  className=" border-danger mr-3 px-3"
+                  style={{ color: "white" }}
+                >
+                  Reviews
+                </span>
               </h2>
               {product.reviews.length === 0 && <Message>No Reviews</Message>}
               <ListGroup variant="flush">

@@ -36,7 +36,7 @@ const App = () => {
       >
         <LinkContainer to="/">
           <Navbar.Brand>
-            <h1 className="text-white m-0 p-0">Swift Buy</h1>
+            <h1 className="text-white m-0 p-0">23 Jewels</h1>
           </Navbar.Brand>
         </LinkContainer>
       </Navbar>
@@ -45,9 +45,9 @@ const App = () => {
         <div style={{ marginInline: "4rem" }}>
           <Route path="/" component={HomeScreen} exact />
           <Route path="/page/:pageNumber" component={HomeScreen} exact />
-        </div>
+          <Route path="/admin/product/:id/edit" component={ProductEditScreen} />
+          <Route path="/product/:id" component={ProductScreen} />
 
-        <Container>
           <Route path="/order/:id" component={OrderScreen} />
           <Route path="/shipping" component={ShippingScreen} />
           <Route path="/payment" component={PaymentScreen} />
@@ -55,7 +55,6 @@ const App = () => {
           <Route path="/login" component={LoginScreen} />
           <Route path="/register" component={RegisterScreen} />
           <Route path="/profile" component={ProfileScreen} />
-          <Route path="/product/:id" component={ProductScreen} />
           <Route path="/cart/:id?" component={CartScreen} />
           <Route path="/admin/userlist" component={UserListScreen} />
           <Route path="/admin/user/:id/edit" component={UserEditScreen} />
@@ -69,7 +68,6 @@ const App = () => {
             component={ProductListScreen}
             exact
           />
-          <Route path="/admin/product/:id/edit" component={ProductEditScreen} />
           <Route path="/admin/orderlist" component={OrderListScreen} />
           <Route path="/search/:keyword" component={HomeScreen} exact />
           <Route
@@ -80,7 +78,7 @@ const App = () => {
           <Route path="*">
             <Redirect to="/" />
           </Route>
-        </Container>
+        </div>
       </main>
       <Footer />
     </Router>

@@ -30,10 +30,10 @@ const ShippingScreen = ({ history }) => {
   }
 
   return (
-    <div>
+    <div style={{ marginInline: "10%", color: "white" }}>
       <CheckoutSteps step1 step2 />
 
-      <h1 className="text-center">Shipping</h1>
+      <h1 className="text-center text-white">Shipping</h1>
       <hr />
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="address">

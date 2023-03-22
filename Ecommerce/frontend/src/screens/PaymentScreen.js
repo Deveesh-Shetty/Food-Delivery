@@ -24,9 +24,9 @@ const PaymentScreen = ({ history }) => {
   }
 
   return (
-    <div>
+    <div style={{ color: "white" }}>
       <CheckoutSteps step1 step2 step3 />
-      <h1>Payment Method</h1>
+      <h1 style={{ color: "white" }}>Payment Method</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group>
           <Form.Label as="legend">Select Method</Form.Label>

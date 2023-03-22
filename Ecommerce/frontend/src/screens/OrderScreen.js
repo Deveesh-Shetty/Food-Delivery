@@ -93,7 +93,7 @@ const OrderScreen = ({ match, history }) => {
     <Message variant="danger">{error}</Message>
   ) : (
     <>
-      <h1>Order {order._id}</h1>
+      <h1 style={{ color: "white" }}>Order {order._id}</h1>
       <Row>
         <Col md={12}>
           <ListGroup variant="flush">
@@ -168,7 +168,7 @@ const OrderScreen = ({ match, history }) => {
             </ListGroup.Item>
           </ListGroup>
         </Col>
-        <Col md={4}>
+        <Col md={12}>
           <Card>
             <ListGroup variant="flush">
               <ListGroup.Item>
@@ -213,7 +213,7 @@ const OrderScreen = ({ match, history }) => {
               )}
               {loadingDeliver && <Loader />}
               {userInfo && userInfo.isAdmin && !order.isDelivered && (
-                <ListGroup.Item>
+                <ListGroup.Item style={{ marginInline: "auto" }}>
                   <Button
                     type="button"
                     className="btn btn-block btn-info rounded-pill"
