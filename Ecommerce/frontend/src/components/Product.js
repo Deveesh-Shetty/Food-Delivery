@@ -21,12 +21,18 @@ const Product = ({ product }) => {
         style={{
           display: "flex",
           gap: "1rem",
-          justifyContent: "space-between",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
         <Link to={`/product/${product._id}`}>
           <Card.Title as="div">
-            <strong style={{ fontSize: "1rem", fontWeight: "700" }}>
+            <strong
+              style={{
+                fontSize: "1rem",
+                fontWeight: "700",
+              }}
+            >
               {product.name}
             </strong>
           </Card.Title>
